@@ -1,0 +1,231 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="#home" class="footer-logo">
+          <img src="/logo1234.png" alt="Marashi Guesthouse" class="footer-logo-img" />
+        </a>
+        <p class="brand-desc">
+          Authentic Albanian hospitality in the heart of the Albanian Alps.
+          Where every guest becomes family.
+        </p>
+      </div>
+
+      <!-- Quick links -->
+      <div class="footer-col">
+        <h4 class="col-title">Explore</h4>
+        <ul class="col-links">
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#rooms">Accommodations</a></li>
+          <li><a href="#amenities">Amenities</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Guest Reviews</a></li>
+        </ul>
+      </div>
+
+      <!-- Info -->
+      <div class="footer-col">
+        <h4 class="col-title">Information</h4>
+        <ul class="col-links">
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#contact">Make a Reservation</a></li>
+          <li><a href="#">Cancellation Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h4 class="col-title">Contact</h4>
+        <div class="footer-contact">
+          <p>Rruga Kulla, Bajram Curri<br/>Tropojë, Albania</p>
+          <a href="tel:+35569XXXXXXX">+355 69 XXX XXXX</a>
+          <a href="mailto:info@marashiguesthouse.com">info@marashiguesthouse.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>&copy; {year} Marashi Guesthouse. All rights reserved.</p>
+      <p class="made-with">Made with <span>&#10084;</span> in Albania</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #0d0d0d;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .footer-top {
+    padding: 5rem 1.5rem 4rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.25fr;
+    gap: 4rem;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* Brand */
+  .footer-logo {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-logo-img {
+    height: 60px;
+    width: auto;
+    display: block;
+  }
+
+  .brand-desc {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+
+  .brand-tagline {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.0rem;
+    color: var(--gold);
+  }
+
+  /* Columns */
+  .col-title {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+  }
+
+  .col-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .col-links a {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    transition: color var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .col-links a::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width var(--transition);
+  }
+
+  .col-links a:hover {
+    color: var(--white);
+  }
+  .col-links a:hover::before {
+    width: 12px;
+  }
+
+  /* Contact col */
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-contact p,
+  .footer-contact a {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.55);
+    transition: color var(--transition);
+  }
+
+  .footer-contact a:hover {
+    color: var(--gold);
+  }
+
+  .footer-hours {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.875rem 1rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    border-left: 2px solid var(--gold);
+  }
+
+  .footer-hours strong {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .footer-hours span {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* Bottom bar */
+  .footer-bottom {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .footer-bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .made-with span {
+    color: var(--primary);
+  }
+
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .footer-bottom-inner {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+</style>

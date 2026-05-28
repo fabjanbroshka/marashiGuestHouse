@@ -1,0 +1,272 @@
+---
+const rooms = [
+  {
+    name: 'Standard Room',
+    subtitle: 'Cozy & Comfortable',
+    price: '45',
+    size: '20 m²',
+    capacity: '2 guests',
+    bed: 'Double bed',
+    features: ['Free Wi-Fi', 'Mountain view', 'Private bathroom', 'Daily breakfast'],
+    img: '/photo2.jpg',
+    tag: null,
+  },
+  {
+    name: 'Deluxe Room',
+    subtitle: 'Our Most Popular',
+    price: '75',
+    size: '30 m²',
+    capacity: '2-3 guests',
+    bed: 'King bed',
+    features: ['Free Wi-Fi', 'Panoramic view', 'En-suite bathroom', 'Breakfast & dinner', 'Balcony'],
+    img: '/photo3.jpg',
+    tag: 'Most Popular',
+  },
+  {
+    name: 'Family Suite',
+    subtitle: 'Space for Everyone',
+    price: '110',
+    size: '50 m²',
+    capacity: '4-5 guests',
+    bed: 'King + twin beds',
+    features: ['Free Wi-Fi', 'Alpine panorama', 'Luxury bathroom', 'Full board', 'Private terrace', 'Living area'],
+    img: '/photo4.jpg',
+    tag: 'Best Value',
+  },
+];
+---
+
+<section class="rooms section" id="rooms">
+  <div class="container">
+    <div class="rooms-header">
+      <div class="rooms-header-content">
+        <p class="section-label">Accommodations</p>
+        <h2 class="section-title">Discover our most popular<br />accommodations</h2>
+      </div>
+      <a href="#contact" class="btn btn-primary btn-sm">Book a Room</a>
+    </div>
+
+    <div class="rooms-grid">
+
+      {rooms.map(room => (
+        <div class="room-card">
+          <div class="room-image">
+            <img src={room.img} alt={room.name} loading="lazy" />
+          </div>
+
+          <div class="room-body">
+            <h3 class="room-name">{room.name}</h3>
+
+            <div class="room-specs">
+              <span class="spec">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                {room.size}
+              </span>
+              <span class="spec">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                {room.capacity}
+              </span>
+              <span class="spec">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 0 4H2"/><path d="M2 20h20"/></svg>
+                {room.bed}
+              </span>
+            </div>
+
+            <ul class="room-features">
+              {room.features.map(f => (
+                <li>
+                  <svg class="check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="rooms-cta">
+      <a href="#contact" class="btn btn-primary">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .rooms {
+    background: var(--light);
+  }
+
+  .rooms-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+
+  .rooms-tagline {
+    font-size: 0.9375rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
+
+  .rooms-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+
+  /* Card */
+  .room-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+    position: relative;
+  }
+
+  .room-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .room-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+  }
+
+  .room-image {
+    height: 220px;
+    position: relative;
+    background: #e0dbd4;
+  }
+
+  .room-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .room-card:hover .room-image img {
+    transform: scale(1.04);
+  }
+
+  .room-price-badge {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.2rem;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    padding: 0.5rem 0.875rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .price-from {
+    font-size: 0.6875rem;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .price-num {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .price-per {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .room-body {
+    padding: 1.5rem;
+  }
+
+  .room-name {
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.875rem;
+  }
+
+  .room-specs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .spec {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8125rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .spec svg { color: var(--gold); flex-shrink: 0; }
+
+  .room-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .room-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text);
+  }
+
+  .check { color: var(--primary); flex-shrink: 0; }
+
+  @media (max-width: 1024px) {
+    .rooms-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .rooms-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .rooms-grid {
+      grid-template-columns: 1fr;
+    }
+    .rooms-cta .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

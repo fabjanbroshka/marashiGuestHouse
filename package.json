@@ -1,0 +1,16 @@
+{
+  "name": "marashi-guesthouse",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Marashi Guesthouse - Albanian hospitality at its finest",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.16.0"
+  }
+}
